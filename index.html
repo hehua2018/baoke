@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Blog</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-switch button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .lang-switch button:hover {
+            background-color: #555;
+        }
+        main {
+            display: flex;
+            padding: 20px;
+        }
+        .content {
+            flex: 3;
+            padding: 20px;
+            background-color: white;
+            margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Blog Post Styles */
+        .post {
+            margin-bottom: 30px;
+        }
+        .post h2 {
+            font-size: 28px;
+            color: #333;
+        }
+        .post p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .post a {
+            text-decoration: none;
+            color: #1e90ff;
+        }
+        .post a:hover {
+            text-decoration: underline;
+        }
+        .post-meta {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* Blog Sidebar */
+        .sidebar h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .sidebar ul li a:hover {
+            color: #1e90ff;
+        }
+
+        /* Pagination */
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            color: #333;
+            padding: 8px 16px;
+            text-decoration: none;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+        }
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        /* Comment Section */
+        .comment-section {
+            margin-top: 40px;
+        }
+        .comment-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .comment-form input, .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        .comment-form button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .comment-form button:hover {
+            background-color: #555;
+        }
+
+        /* Media Query for Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            .content {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Blog</h1>
+        <div class="lang-switch">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('zh')">中文</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Main Content Area -->
+        <div class="content" id="content">
+            <div class="post">
+                <h2>Blog Post Title 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae venenatis mi. Vivamus ultricies magna id mi consequat, eu efficitur eros pretium. Curabitur malesuada velit ut lectus vulputate, id condimentum risus malesuada.</p>
+                <a href="#">Read more...</a>
+                <div class="post-meta">Posted on March 10, 2026 by Author</div>
+            </div>
+
+            <div class="post">
+                <h2>Blog Post Title 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae venenatis mi. Vivamus ultricies magna id mi consequat, eu efficitur eros pretium. Curabitur malesuada velit ut lectus vulputate, id condimentum risus malesuada.</p>
+                <a href="#">Read more...</a>
+                <div class="post-meta">Posted on March 9, 2026 by Author</div>
+            </div>
+
+            <div class="post">
+                <h2>Blog Post Title 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae venenatis mi. Vivamus ultricies magna id mi consequat, eu efficitur eros pretium. Curabitur malesuada velit ut lectus vulputate, id condimentum risus malesuada.</p>
+                <a href="#">Read more...</a>
+                <div class="post-meta">Posted on March 8, 2026 by Author</div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#">Previous</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Next</a>
+            </div>
+
+            <!-- Comment Section -->
+            <div class="comment-section">
+                <h3>Leave a Comment</h3>
+                <form class="comment-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <textarea placeholder="Your Comment" rows="5" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sidebar Area -->
+        <div class="sidebar">
+            <h3>About Me</h3>
+            <p>Hi! I'm a passionate blogger who loves to share insights on various topics. Stay tuned for more posts!</p>
+
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Travel</a></li>
+                <li><a href="#">Food</a></li>
+            </ul>
+
+            <h3>Archives</h3>
+            <ul>
+                <li><a href="#">March 2026</a></li>
+                <li><a href="#">February 2026</a></li>
+                <li><a href="#">January 2026</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function changeLanguage(language) {
+            const content = document.getElementById("content");
+
+            if (language === 'en') {
+                content.innerHTML = `
+                    <div class="post">
+                        <h2>Blog Post Title 1</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae venenatis mi. Vivamus ultricies magna id mi consequat, eu efficitur eros pretium. Curabitur malesuada velit ut lectus vulputate, id condimentum risus malesuada.</p>
+                        <a href="#">Read more...</a>
+                        <div class="post-meta">Posted on March 10, 2026 by Author</div>
+                    </div>
+                    <div class="post">
+                        <h2>Blog Post Title 2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae venenatis mi. Vivamus ultricies magna id mi consequat, eu efficitur eros pretium. Curabitur malesuada velit ut lectus vulputate, id condimentum risus malesuada.</p>
+                        <a href="#">Read more...</a>
+                        <div class="post-meta">Posted on March 9, 2026 by Author</div>
+                    </div>
+                    <div class="post">
+                        <h2>Blog Post Title 3</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae venenatis mi. Vivamus ultricies magna id mi consequat, eu efficitur eros pretium. Curabitur malesuada velit ut lectus vulputate, id condimentum risus malesuada.</p>
+                        <a href="#">Read more...</a>
+                        <div class="post-meta">Posted on March 8, 2026 by Author</div>
+                    </div>
+                `;
+            } else if (language === 'zh') {
+                content.innerHTML = `
+                    <div class="post">
+                        <h2>博客文章标题 1</h2>
+                        <p>这是一个简单的中文博客文章内容。点击下方链接查看更多。</p>
+                        <a href="#">阅读全文...</a>
+                        <div class="post-meta">2026年3月10日 作者发布</div>
+                    </div>
+                    <div class="post">
+                        <h2>博客文章标题 2</h2>
+                        <p>这是一个简单的中文博客文章内容。点击下方链接查看更多。</p>
+                        <a href="#">阅读全文...</a>
+                        <div class="post-meta">2026年3月9日 作者发布</div>
+                    </div>
+                    <div class="post">
+                        <h2>博客文章标题 3</h2>
+                        <p>这是一个简单的中文博客文章内容。点击下方链接查看更多。</p>
+                        <a href="#">阅读全文...</a>
+                        <div class="post-meta">2026年3月8日 作者发布</div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
